@@ -1,0 +1,26 @@
+{% extends 'base/base.html' %}
+
+{% block main-content %}
+<div class="main-body-content main-row">
+    <div class="col-lg-4 col-md-6 col-sm-9 col-11 m-auto py-5" style="border: 1px solid #EFEFEF; border-radius: 10px;">
+        <h3 class="text-center p-3">SYSTEM LOGIN</h3>
+        <form class="py-3" method="POST">
+            {% csrf_token %}
+            <div class="form-group px-5">
+                <label for="{{ form.username.id_for_label }}">{{ form.username.label }}</label>
+                <input class="form-control" type="text" maxlength="15" id="{{ form.username.id_for_label }}" name="{{ form.username.html_name }}" placeholder="{{ form.username.label }}" />
+            </div>
+            <div class="form-group px-5">
+                <label for="{{ form.password.id_for_label }}">{{ form.password.label }}</label>
+                <input class="form-control" type="password" maxlength="15" id="{{ form.password.id_for_label }}" name="{{ form.password.html_name }}" placeholder="{{ form.password.label }}" />
+            </div>
+            <div class="form-group px-5 py-3">
+                <input class="btn btn-block btn-outline-secondary main-button-style" type="submit" value="Login" />
+            </div>
+            <div>
+            {{ form.errors }}
+            </div>
+        </form>
+    </div>
+</div>
+{% endblock %}

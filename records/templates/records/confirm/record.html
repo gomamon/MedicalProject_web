@@ -1,0 +1,79 @@
+{% extends 'dashboard/base.html' %}
+
+{% block records-style-class %}
+current-menu
+{% endblock %}
+
+{% block item-content %}
+<div class="main-row p-0 m-0">
+    <h3>Confirm </h3>
+</div>
+
+<hr></hr>
+
+
+<div>
+
+    <table class="record-confirm-table">
+        <tr>
+            <th scope="row">name</th>
+            <td>{{ record.patient.information.name }}</td>
+        </tr>
+        <tr>
+            <th scope="row">patient number</th>
+            <td>{{ record.patient.information.pid }}</td>
+        </tr>
+        <tr>
+            <th scope="row">birth</th>
+            <td>{{ record.patient.information.birth }}</td>
+        </tr>
+    </table>
+
+    <div style="width: 100%; /*text-align: center;*/">
+    <table class="record-confirm-table">
+        <tr>
+            <th scope="row">등록시간</th>
+            <td>{{ record.registered_time }}</th>
+
+        </tr>
+
+        <tr>
+            <th scope="row">수분섭취량(cc)</th>
+            <td> {{ record.liquid_amount }}</td>
+        </tr>
+        <tr>
+            <th scope="row">식사량</th>
+            <td> {{ record.consume_amount }}</td>
+        </tr>
+        <tr>
+            <th scope="row">소변량(cc)</th>
+            <td> {{ record.urine_amount }}</td>
+        </tr>
+        <tr>
+            <th scope="row">대변(횟수)</th>
+            <td> {{ record.stool_count }}</td>
+        </tr>
+
+    </table>
+    </div>
+
+
+    <div>
+        <form action="" method="POST" style="width: 100%; text-align: center;">
+            {% csrf_token %}
+            <p>정말 삭제하시겠습니까?</p>
+             <input class="btn btn-default btn-danger" type="submit" value="Confirm" style="width:100px; display:inline-block;" />
+        </form>
+    </div>
+
+<!--
+
+    <div style="width:100%; text-align: center;">
+        <p style="text-align: center;">삭제하시겠습니까?</p>
+        <a class="d-inline-block btn btn-outline-secondary main-button-style ml-auto" role="button" href="{% url 'records-main' %}" style="width:100px; display:inline-block;">confirm</a>
+    </div>
+
+-->
+</div>
+
+{% endblock %}

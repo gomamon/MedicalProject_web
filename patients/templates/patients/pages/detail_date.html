@@ -1,0 +1,57 @@
+{% extends 'patients/pages/main.html' %}
+
+{% block item-content %}
+<div class="">
+    <h1>{{ patient.name }}님의 records (date) </h1>
+    <hr></hr>
+    <div>
+        <table class="patient-info-table">
+            <tr>
+                <th scope="row">name</th>
+                <td>{{ patient.name }}</td>
+            </tr>
+            <tr>
+                <th scope="row">patient number</th>
+                <td>{{ patient.pid }}</td>
+            </tr>
+            <tr>
+                <th scope="row">birth</th>
+                <td>{{ patient.birth }}</td>
+            </tr>
+        </table>
+        <table class="patient-table">
+
+            <thead>
+              <tr>
+                 <th scope="cols">등록시간</th>
+                 <th scope="cols">수분섭취량(cc)</th>
+                 <th scope="cols">식사량</th>
+                 <th scope="cols">소변량(cc)</th>
+                 <th scope="cols">대변(횟수)</th>
+              </tr>
+            </thead>
+
+            <tbody>
+            {% for record in records %}
+            <tr>
+                <td>{{ record.registered_time }}</th>
+                <td>{{ record.liquid_amount }}</td>
+                <td>{{ record.consume_amount }}</td>
+                <td>{{ record.urine_amount }}</td>
+                <td>{{ record.stool_count }}</td>
+
+
+            </tr>
+
+
+            {% endfor %}
+            </tbody>
+
+        </table>
+    </div>
+
+
+
+
+</div>
+{% endblock %}

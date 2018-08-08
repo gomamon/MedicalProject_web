@@ -1,0 +1,54 @@
+{% extends 'dashboard/base.html' %}
+
+{% block records-style-class %}
+current-menu
+{% endblock %}
+
+{% block item-content %}
+<div class="main-row p-0 m-0">
+    <h3>Delete Confirm</h3>
+</div>
+
+<hr></hr>
+
+
+<div>
+
+    <table class="patient-info-table">
+        <tr>
+            <th scope="row">name</th>
+            <td>{{ information.patient.information.name }}</td>
+        </tr>
+        <tr>
+            <th scope="row">patient number</th>
+            <td>{{ information.patient.information.pid }}</td>
+        </tr>
+        <tr>
+            <th scope="row">birth</th>
+            <td>{{ information.patient.information.birth }}</td>
+        </tr>
+    </table>
+
+    <div style="width: 100%; /*text-align: center;*/">
+    </div>
+
+
+    <div>
+        <form action="" method="POST" style="width: 100%; text-align: center;">
+            {% csrf_token %}
+            <p>{{ information.patient.information.name }}님의 정보를 정말 삭제하시겠습니까?</p>
+             <input class="btn btn-default btn-danger" type="submit" value="Confirm" style="width:100px; display:inline-block;" />
+        </form>
+    </div>
+
+<!--
+
+    <div style="width:100%; text-align: center;">
+        <p style="text-align: center;">삭제하시겠습니까?</p>
+        <a class="d-inline-block btn btn-outline-secondary main-button-style ml-auto" role="button" href="{% url 'records-main' %}" style="width:100px; display:inline-block;">confirm</a>
+    </div>
+
+-->
+</div>
+
+{% endblock %}

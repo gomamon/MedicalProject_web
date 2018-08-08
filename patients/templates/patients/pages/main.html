@@ -1,0 +1,60 @@
+{% extends 'dashboard/base.html' %}
+
+{% block patients-style-class %}
+current-menu
+{% endblock %}
+
+{% block item-content %}
+<div class="main-row p-0 m-0">
+    <h3>Patients Information</h3>
+    <div class="main-row ml-auto my-0">
+        <a class="d-inline-block btn btn-outline-secondary main-button-style ml-auto" role="button" href="{% url 'patient-new' %}">&plus; 새 환자</a>
+    </div>
+</div>
+<hr></hr>
+
+<!-- paitent data -->
+<div class="patient-info">
+    <table class="patient-table">
+        <thead>
+            <tr>
+                <th scope="cols">환자번호</th>
+                <th scope="cols">이름</th>
+                <th scope="cols">생년월일</th>
+                <th></th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for patient in information %}
+
+
+        <tr></tr>
+            <th scope="row"><a style="color: green;"href="{% url 'patient-detail' pk=patient.pk %}"> {{ patient.pid }}</a></th>
+            <td> {{ patient.name }}</td>
+            <td> {{ patient.birth }}</td>
+            <td> <!--class="delete-button"-->
+                <div class="buttons">
+                    <div style="width: 30px; height: 30px;">
+                         <a class="pencil" role="button" href="{% url 'patient-update' pk=patient.pk %}">
+                             <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="485.219px" height="485.22px" viewBox="0 0 485.219 485.22" style="enable-background:new 0 0 485.219 485.22;" xml:space="preserve"><g><path class="fill" d="M467.476,146.438l-21.445,21.455L317.35,39.23l21.445-21.457c23.689-23.692,62.104-23.692,85.795,0l42.886,42.897C491.133,84.349,491.133,122.748,467.476,146.438z M167.233,403.748c-5.922,5.922-5.922,15.513,0,21.436c5.925,5.955,15.521,5.955,21.443,0L424.59,189.335l-21.469-21.457L167.233,403.748z M60,296.54c-5.925,5.927-5.925,15.514,0,21.44c5.922,5.923,15.518,5.923,21.443,0L317.35,82.113L295.914,60.67L60,296.54z M338.767,103.54L102.881,339.421c-11.845,11.822-11.815,31.041,0,42.886c11.85,11.846,31.038,11.901,42.914-0.032l235.886-235.837L338.767,103.54z M145.734,446.572c-7.253-7.262-10.749-16.465-12.05-25.948c-3.083,0.476-6.188,0.919-9.36,0.919c-16.202,0-31.419-6.333-42.881-17.795c-11.462-11.491-17.77-26.687-17.77-42.887c0-2.954,0.443-5.833,0.859-8.703c-9.803-1.335-18.864-5.629-25.972-12.737c-0.682-0.677-0.917-1.596-1.538-2.338L0,485.216l147.748-36.986C147.097,447.637,146.36,447.193,145.734,446.572z"/></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                         </a>
+                    </div>
+                    <div style="width: 30px; height: 30px; position :relative;">
+                        <a class="trash-can" role="button" href="{% url 'patient-delete' pk=patient.pk %}">
+                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="408.483px" height="408.483px" viewBox="0 0 408.483 408.483" style="enable-background:new 0 0 408.483 408.483;" xml:space="preserve"><g><g><path class="fill" d="M87.748,388.784c0.461,11.01,9.521,19.699,20.539,19.699h191.911c11.018,0,20.078-8.689,20.539-19.699l13.705-289.316H74.043L87.748,388.784z M247.655,171.329c0-4.61,3.738-8.349,8.35-8.349h13.355c4.609,0,8.35,3.738,8.35,8.349v165.293c0,4.611-3.738,8.349-8.35,8.349h-13.355c-4.61,0-8.35-3.736-8.35-8.349V171.329z M189.216,171.329c0-4.61,3.738-8.349,8.349-8.349h13.355c4.609,0,8.349,3.738,8.349,8.349v165.293c0,4.611-3.737,8.349-8.349,8.349h-13.355c-4.61,0-8.349-3.736-8.349-8.349V171.329L189.216,171.329z M130.775,171.329c0-4.61,3.738-8.349,8.349-8.349h13.356c4.61,0,8.349,3.738,8.349,8.349v165.293c0,4.611-3.738,8.349-8.349,8.349h-13.356c-4.61,0-8.349-3.736-8.349-8.349V171.329z"/><path class="fill" d="M343.567,21.043h-88.535V4.305c0-2.377-1.927-4.305-4.305-4.305h-92.971c-2.377,0-4.304,1.928-4.304,4.305v16.737H64.916c-7.125,0-12.9,5.776-12.9,12.901V74.47h304.451V33.944C356.467,26.819,350.692,21.043,343.567,21.043z"/></g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g><g></g></svg>
+                        </a>
+                    </div>
+                </div>
+
+            </td>
+
+        </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}

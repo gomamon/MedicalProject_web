@@ -1,0 +1,51 @@
+{% extends 'dashboard/base.html' %}
+
+{% block records-style-class %}
+current-menu
+{% endblock %}
+
+{% block item-content %}
+<div class="main-row p-0 m-0">
+    <h3>Records Information</h3>
+    <div class="main-row ml-auto my-0">
+        <a class="d-inline-block btn btn-outline-secondary main-button-style ml-auto" role="button" href="{% url 'record-new' %}">&plus; 새 기록</a>
+    </div>
+</div>
+
+<hr></hr>
+
+
+<div class="records-content">
+    <table class="patient-table">
+        <thead>
+            <tr>
+                <th scope="cols">등록시간</th>
+                <th scope="cols">환자이름</th>
+                <th scope="cols">수분섭취량(cc)</th>
+                <th scope="cols">식사량</th>
+                <th scope="cols">소변량(cc)</th>
+                <th scope="cols">대변(횟수)</th>
+                <th scope="cols"></th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for patient in information %}
+            <tr>
+                <th scope="row">{{ patient.registered_time }}</th>
+                <td> {{ patient.patient.information.name }}</td>
+                <td> {{ patient.liquid_amount }}</td>
+                <td> {{ patient.consume_amount }}</td>
+                <td> {{ patient.urine_amount }}</td>
+                <td> {{ patient.stool_count }}</td>
+                <td class="delete-button">
+                    <a class="d-inline-block btn btn-outline-secondary main-button-style ml-auto" role="button" href="{% url 'record-delete' pk=patient.pk %}">삭제하기</a>
+                </td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}
