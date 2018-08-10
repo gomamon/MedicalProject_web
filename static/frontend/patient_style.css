@@ -1,5 +1,57 @@
 
-/******class for fixed********/
+/****** patient-detail table ********/
+
+
+table.patient-detail-table {
+    background: #efefef;
+    border-collapse: collapse;
+    text-align: center;
+    line-height: 1.5;
+    border:0px;
+    margin: 20px 10px;
+    width:90%;
+    margin-left:20px;
+}
+table.patient-detail-table thead th ,
+table.patient-detail-table .item_type {
+    /*width: 80px;*/
+    padding: 10px 30px 10px 30px;
+    font-weight: bold;
+    vertical-align: center;
+    horiz-align: center;
+    color: #fff;
+    background: #77bc1f;
+    margin: 20px 10px;
+}
+table.patient-detail-table tbody tr {
+    border-bottom: 2px solid #fff;
+  /*  width: 150px;*/
+    margin: 20px 10px;
+    padding: 10px;
+  /*  cursor: pointer;*/
+}
+
+
+th.item_name {
+    margin: auto;
+    padding:auto !important;
+    width: 500px !important;
+}
+
+table.patient-detail-table tbody tr:nth-child(even){background-color: #ddd;}
+/*table.patient-table tbody tr:hover {background-color: #ddd;}*/
+
+table.patient-detail-table td {
+    /*padding: 10px 30px 10px 30px;
+    vertical-align: top;*/
+    border-bottom: 2px solid #fff;
+    margin: 20px 10px;
+    padding: 10px;
+}
+table.patient-detail-table .even {
+    background: #fdf3f5;
+}
+
 
 
 /********* button effect of icons (trash-can, pencil)************/
