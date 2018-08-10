@@ -1,0 +1,35 @@
+{% extends 'patients/pages/main.html' %}
+
+{% block item-content %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="main-row p-0 m-0">
+        <h3>환자 정보 수정하기</h3>
+		<div class="ml-auto">
+			<input class="btn btn-outline-secondary virus-button-style" type="submit" value="&check; 등록하기" />
+			<a class="btn btn-outline-secondary virus-button-style ml-1 mr-0" href="{% url 'patients-main' %}" role="button">&#10005; 취소하기</a>
+        </div>
+    </div>
+    <hr></hr>
+    <div class="form-group col-lg-6 col-md-8 col-12">
+        <label for="{{ form.pid.id_for_label }}">{{ form.pid.label }}</label>
+        <input class="form-control" type="text" id="{{ form.pid.id_for_label }}" name="{{ form.pid.html_name }}" min="0" placeholder="{{ form.pid.label }}" value="{% if form.pid.value %}{{ form.pid.value }}{% endif %}" required />
+    </div>
+    <div class="form-group col-lg-6 col-md-8 col-12">
+        <label for="{{ form.name.id_for_label }}">{{ form.name.label }}</label>
+        <input class="form-control" type="text" id="{{ form.name.id_for_label }}" name="{{ form.name.html_name }}" maxlength="10" placeholder="{{ form.name.label }}" value="{% if form.name.value %}{{ form.name.value }}{% endif %}" required />
+    </div>
+    <div class="form-group col-lg-6 col-md-8 col-12">
+        <label for="{{ form.birth.id_for_label }}">{{ form.birth.label }}</label>
+        <input class="form-control datepicker" type="text" id="{{ form.birth.id_for_label }}" name="{{ form.birth.html_name }}" placeholder="{{ form.birth.label }}" value="{% if form.birth.value %}{{ form.birth.value }}{% endif %}" required />
+    </div>
+</form>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.datepicker').datepicker({dateFormat: 'yy-mm-dd'});
+    });
+</script>
+{% endblock %}

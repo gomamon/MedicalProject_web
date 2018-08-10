@@ -79,6 +79,12 @@ class PatientUpdateView(UpdateView):
     template_name = 'patients/forms/update.html'
     model = Information
     fields = ('pid', 'name', 'birth')
+    def form_valid(self,form):
+        patient = form.save(commit=Flase)
+        patient.patient = User.objects.create(username=patient.pid, password=patient.pid)
+        patient.save()
+        return credits('patient-main')
+
 
 
 class PatientDeleteView(DeleteView):
