@@ -1,30 +1,39 @@
 
-/********* button effect of icons (trash-can, pencil)************/
+/******class for fixed********/
 
+
+/********* button effect of icons (trash-can, pencil)************/
+.button{
+        width:80%;
+        float:left;
+        padding:15px;
+}
 .trash-can ,
 .pencil{
-    width: 30px;
-    height: 30px;
+
+    display: inline-block;
+    margin: auto;
+    width: 100%;
+    height: 100%;
 }
 .trash-can svg ,
 .pencil svg{
+    display: inline-block;
+    margin-top: 5px;
     width: 30px;
     height: 30px;
+    margine: auto;
 }
+
 .trash-can svg .fill ,
 .pencil svg .fill{
+        fill:#c0cecb;
+
         -webkit-transition: fill 0.2s ease;
         -moz-transition: fill 0.2s ease;
         -ms-transition: fill 0.2s ease;
         -o-transition: fill 0.2s ease;
         transition:fill 0.2s ease;
-
-}
-
-
-.trash-can svg .fill ,
-.pencil svg .fill{
-        fill:#c0cecb;
 }
 
 .trash-can:hover svg .fill {
@@ -37,6 +46,10 @@
     cursor: pointer
 }
 
+table td.buttons {
+    width: 50px;
+    text-align:center;
+}
 
 /********** record-confirm-table *********/
 
@@ -64,11 +77,11 @@ table.record-confirm-table td {
     margin: 20px 10px;
 }
 table.record-confirm-table tr {
+
     border-bottom: 2px solid #fff;
     margin:20px 10px;
     padding: 10px;
 }
-
 
 /********** patient-info-table *************/
 
@@ -85,8 +98,6 @@ table.patient-info-table th {
     vertical-align: top;
     horiz-align: center;
     padding: 10px 30px 10px 30px;
-    /*color: #77bc1f;
-    background: #f2f2f2;*/
     margin: 20px 10px;
 }
 table.patient-info-table td {
@@ -97,6 +108,8 @@ table.patient-info-table td {
     background: #f2f2f2;
     margin: 20px 10px;
 }
+
+
 table.patient-info-table tr {
     border-bottom: 2px solid #fff;
     margin:20px 10px;
@@ -115,7 +128,8 @@ table.patient-table {
     width:90%;
     margin-left:20px;
 }
-table.patient-table thead th {
+table.patient-table thead th ,
+table .item_type {
     /*width: 80px;*/
     padding: 10px 30px 10px 30px;
     font-weight: bold;
@@ -134,8 +148,14 @@ table.patient-table tbody tr {
 }
 
 
-table.patient-table tbody tr:nth-child(even){background-color: #f2f2f2;}
-table.patient-table tbody tr:hover {background-color: #ddd;}
+th.item_name {
+    margin: auto;
+    padding:auto !important;
+    width: 500px !important;
+}
+
+table.patient-table tbody tr:nth-child(even){background-color: #ddd;}
+/*table.patient-table tbody tr:hover {background-color: #ddd;}*/
 
 table.patient-table td {
     /*padding: 10px 30px 10px 30px;

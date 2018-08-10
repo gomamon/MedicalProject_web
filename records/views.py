@@ -36,13 +36,13 @@ class RecordDetailView(DetailView):
 class RecordCreateView(CreateView):
     template_name = 'records/forms/record.html'
     model = Record
-    fields = ('patient', 'liquid_amount', 'consume_amount', 'urine_amount', 'stool_count',)
+    fields = ('patient', 'io_type', 'record_type', 'amount',)
 
 
 class RecordUpdateView(UpdateView):
     template_name = 'records/forms/record.html'
     model = Record
-    fields = ('liquid_amount', 'consume_amount', 'urine_amount', 'stool_count',)
+    fields = ('io_type', 'record_type', 'amount',)
 
 
 class RecordDeleteView(DeleteView):

@@ -7,7 +7,7 @@ class RecordSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Record
-        fields = ('patient', 'registered_time', 'liquid_amount', 'consume_amount', 'urine_amount', 'stool_count',)
+        fields = ('patient', 'io_type', 'record_type', 'amount', 'registered_time',)
 
 
 class RecordListSerializer(serializers.ModelSerializer):
@@ -16,4 +16,4 @@ class RecordListSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Record
-        fields = ('patient_pid', 'patient_name', 'registered_time', 'liquid_amount', 'consume_amount', 'urine_amount', 'stool_count',)
+        fields = ('patient_pid', 'patient_name', 'io_type', 'record_type', 'amount', 'registered_time',)
