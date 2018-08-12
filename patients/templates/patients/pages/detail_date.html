@@ -1,53 +1,229 @@
 {% extends 'patients/pages/main.html' %}
 
 {% block item-content %}
-<div class="">
-    <h1>{{ patient.name }}님의 records (date) </h1>
+
+    <h1>K병동 123호실 {{ patient.name }}({{ patient.pid }})님의 Records(date)</h1>
     <hr></hr>
+
+
     <div>
-        <table class="patient-info-table">
+        <table class="detail-nav">
             <tr>
-                <th scope="row">name</th>
-                <td>{{ patient.name }}</td>
-            </tr>
-            <tr>
-                <th scope="row">patient number</th>
-                <td>{{ patient.pid }}</td>
-            </tr>
-            <tr>
-                <th scope="row">birth</th>
-                <td>{{ patient.birth }}</td>
+                <th scope="row">기준날짜</th>
+                <td>2018년 9월 19일</td>
+                <th scope="row">기준시간</th>
+                <td>0A</td> <!-- 0A 7A -->
+                <th scope="row">소계</th>
+                <td>4시간</td> <!-- 4시간 6시간 8시간 -->
             </tr>
         </table>
-        <table class="patient-table">
+    </div>
 
-            <thead>
-              <tr>
-                 <th scope="cols">등록시간</th>
-                 <th scope="cols">수분섭취량(cc)</th>
-                 <th scope="cols">식사량</th>
-                 <th scope="cols">소변량(cc)</th>
-                 <th scope="cols">대변(횟수)</th>
-              </tr>
-            </thead>
-
-            <tbody>
-            {% for record in records %}
+    <div>
+        <table class = "patient-detail-table">
             <tr>
-                <td>{{ record.registered_time }}</th>
-                <td>{{ record.liquid_amount }}</td>
-                <td>{{ record.consume_amount }}</td>
-                <td>{{ record.urine_amount }}</td>
-                <td>{{ record.stool_count }}</td>
+                <th><a href="{% url 'patient-detail-date' pk=patient.pk %}"> date </a> </th>
+                <th class="unchecked"><a href="{% url 'patient-detail' pk=patient.pk %}"> time </a> </th>
+            </tr>
+        </table>
+        <table class="patient-detail-table">
+        <thead>
+            <tr>
+                <th scope="cols">시간</th>
+                <th scope="cols"></th>
+                <th scope="cols"> H1 </th>
+                <th scope="cols"> H2 </th>
+                <th scope="cols"> H3 </th>
+                <th scope="cols"> H4 </th>
+                <th scope="cols"> H5 </th>
+                <th scope="cols"> H6 </th>
+                <th scope="cols"> H7 </th>
+                <th scope="cols"> H8 </th>
+                <th scope="cols"> H9 </th>
+                <th scope="cols"> H10 </th>
+                <th scope="cols"> H11 </th>
+                <th scope="cols"> H12 </th>
+                <th scope="cols"> H13 </th>
+                <th scope="cols"> H14 </th>
+                <th scope="cols"> H15 </th>
+                <th scope="cols"> H16 </th>
+                <th scope="cols"> H17 </th>
+                <th scope="cols"> H18 </th>
+                <th scope="cols"> H19 </th>
+                <th scope="cols"> H20 </th>
+                <th scope="cols"> H21 </th>
+                <th scope="cols"> H22 </th>
+                <th scope="cols"> H23 </th>
+                <th scope="cols"> H24 </th>
+            </tr>
+        </thead>
 
+        <tbody>
 
+            <tr>
+                <th rowspan="7" class="item_type">input</th>
+                <th scope="row" class="item_name">합계</th>
+                {% for patient in information %}
+                    <td> {{ patient.patient.information.name }}</td>
+                    <td> {{ patient.liquid_amount }}</td>
+                    <td> {{ patient.consume_amount }}</td>
+                    <td> {{ patient.urine_amount }}</td>
+                    <td> {{ patient.stool_count }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th scope="row" class="item_name">정맥주입 총 합계</th>
+                {% for patient in information %}
+                    <td> {{ patient.patient.information.name }}</td>
+                    <td> {{ patient.liquid_amount }}</td>
+                    <td> {{ patient.consume_amount }}</td>
+                    <td> {{ patient.urine_amount }}</td>
+                    <td> {{ patient.stool_count }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th scope="row" class="item_name">경구(환자자동입력)</th>
+                {% for patient in information %}
+                    <td> {{ patient.patient.information.name }}</td>
+                    <td> {{ patient.liquid_amount }}</td>
+                    <td> {{ patient.consume_amount }}</td>
+                    <td> {{ patient.urine_amount }}</td>
+                    <td> {{ patient.stool_count }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th scope="row" class="item_name">경구(간호사입력)</th>
+                {% for patient in information %}
+                    <td> {{ patient.patient.information.name }}</td>
+                    <td> {{ patient.liquid_amount }}</td>
+                    <td> {{ patient.consume_amount }}</td>
+                    <td> {{ patient.urine_amount }}</td>
+                    <td> {{ patient.stool_count }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th scope="row" class="item_name">경관(간호사입력)</th>
+                {% for patient in information %}
+                    <td> {{ patient.patient.information.name }}</td>
+                    <td> {{ patient.liquid_amount }}</td>
+                    <td> {{ patient.consume_amount }}</td>
+                    <td> {{ patient.urine_amount }}</td>
+                    <td> {{ patient.stool_count }}</td>
+                {% endfor %}
+            </tr>
+
+            <tr>
+                <th scope="row" class="item_name">정맥 주입 주사 1</th>
+                {% for patient in information %}
+                    <td> {{ patient.patient.information.name }}</td>
+                    <td> {{ patient.liquid_amount }}</td>
+                    <td> {{ patient.consume_amount }}</td>
+                    <td> {{ patient.urine_amount }}</td>
+                    <td> {{ patient.stool_count }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th scope="row" class="item_name">정맥 주입 주사2</th>
+                {% for patient in information %}
+                    <td> {{ patient.patient.information.name }}</td>
+                    <td> {{ patient.liquid_amount }}</td>
+                    <td> {{ patient.consume_amount }}</td>
+                    <td> {{ patient.urine_amount }}</td>
+                    <td> {{ patient.stool_count }}</td>
+                {% endfor %}
             </tr>
 
 
-            {% endfor %}
-            </tbody>
 
-        </table>
+            <tr>
+                <th rowspan="9" class="item_type">output</th>
+                <th scope="row" class="item_name">합계</th>
+                {% for patient in information %}
+                    <td> {{ patient.patient.information.name }}</td>
+                    <td> {{ patient.liquid_amount }}</td>
+                    <td> {{ patient.consume_amount }}</td>
+                    <td> {{ patient.urine_amount }}</td>
+                    <td> {{ patient.stool_count }}</td>
+                {% endfor %}
+            </tr>
+            <tr>
+                <th scope="row" class="item_name">총 대변 횟수</th>
+                {% for patient in information %}
+                    <td> {{ patient.patient.information.name }}</td>
+                    <td> {{ patient.liquid_amount }}</td>
+                    <td> {{ patient.consume_amount }}</td>
+                    <td> {{ patient.urine_amount }}</td>
+                    <td> {{ patient.stool_count }}</td>
+                {% endfor %}
+            </tr>
+
+            <tr>
+                <th scope="row" class="item_name">Self voiding(환자자동입력)</th>
+                {% for patient in information %}
+                    <td> {{ patient.patient.information.name }}</td>
+                    <td> {{ patient.liquid_amount }}</td>
+                    <td> {{ patient.consume_amount }}</td>
+                    <td> {{ patient.urine_amount }}</td>
+                    <td> {{ patient.stool_count }}</td>
+                {% endfor %}
+            </tr>
+         <tr>
+                <th scope="row" class="item_name">Self voiding(간호사입력)</th>
+                {% for patient in information %}
+                    <td> {{ patient.patient.information.name }}</td>
+                    <td> {{ patient.liquid_amount }}</td>
+                    <td> {{ patient.consume_amount }}</td>
+                    <td> {{ patient.urine_amount }}</td>
+                    <td> {{ patient.stool_count }}</td>
+                {% endfor %}
+            </tr>
+         <tr>
+                <th scope="row" class="item_name">Foley catheter(환자입력)</th>
+                {% for patient in information %}
+                    <td> {{ patient.patient.information.name }}</td>
+                    <td> {{ patient.liquid_amount }}</td>
+                    <td> {{ patient.consume_amount }}</td>
+                    <td> {{ patient.urine_amount }}</td>
+                    <td> {{ patient.stool_count }}</td>
+                {% endfor %}
+
+            </tr>
+         <tr>
+                <th scope="row" class="item_name">Foley catheter(간호사입력)</th>
+                {% for patient in information %}
+                    <td> {{ patient.patient.information.name }}</td>
+                    <td> {{ patient.liquid_amount }}</td>
+                    <td> {{ patient.consume_amount }}</td>
+                    <td> {{ patient.urine_amount }}</td>
+                    <td> {{ patient.stool_count }}</td>
+                {% endfor %}
+            </tr>
+         <tr>
+                <th scope="row" class="item_name">대변(환자입력)</th>
+                {% for patient in information %}
+                    <td> {{ patient.patient.information.name }}</td>
+                    <td> {{ patient.liquid_amount }}</td>
+                    <td> {{ patient.consume_amount }}</td>
+                    <td> {{ patient.urine_amount }}</td>
+                    <td> {{ patient.stool_count }}</td>
+                {% endfor %}
+            </tr>
+         <tr>
+                <th scope="row" class="item_name">대변(간호사입력)</th>
+                {% for patient in information %}
+                    <td> {{ patient.patient.information.name }}</td>
+                    <td> {{ patient.liquid_amount }}</td>
+                    <td> {{ patient.consume_amount }}</td>
+                    <td> {{ patient.urine_amount }}</td>
+                    <td> {{ patient.stool_count }}</td>
+                {% endfor %}
+            </tr>
+
+        </tbody>
+    </table>
+
+
+
     </div>
 
 

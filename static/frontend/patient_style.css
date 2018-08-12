@@ -1,4 +1,24 @@
 
+
+
+/****** detail-nav ********/
+
+table.detail-nav {
+    height: 50px;
+    background:#001e46;
+    color: #fff;
+}
+
+
+table.detail-nav th,td {
+    padding: .5em 1em;
+	text-align: center;
+    border-bottom: 2px solid #fff;
+	vertical-align: center;
+	border-left: 0px solid #fff;
+
+}
+
 /****** patient-detail table ********/
 
 
@@ -6,52 +26,60 @@ table.patient-detail-table {
     background: #efefef;
     border-collapse: collapse;
     text-align: center;
-    line-height: 1.5;
     border:0px;
     margin: 20px 10px;
-    width:90%;
-    margin-left:20px;
 }
-table.patient-detail-table thead th ,
-table.patient-detail-table .item_type {
-    /*width: 80px;*/
-    padding: 10px 30px 10px 30px;
-    font-weight: bold;
-    vertical-align: center;
-    horiz-align: center;
-    color: #fff;
-    background: #77bc1f;
-    margin: 20px 10px;
+
+table.patient-detail-table thead
+{
+	height: 50px;
+	background: #77bc1f;
+	color: #fff;
+
 }
-table.patient-detail-table tbody tr {
+
+table.patient-detail-table th
+{
+	background: #77bc1f;
+	color: #fff;
+}
+
+table.patient-detail-table th a
+{
+	color: #fff;
+}
+
+table.patient-detail-table th.item_name
+{
+    display: block;
+	height: 50px;
+    width: 230px;
+    text-algin: left;
+	background: #c0cecb;
+	color: #000;
+}
+
+
+table.patient-detail-table tbody td{
+    display: block;
+	height: 50px;
+	background: #efefef;
+}
+
+table.patient-detail-table th,td {
+    padding: .5em 1em;
+	text-align: center;
     border-bottom: 2px solid #fff;
-  /*  width: 150px;*/
-    margin: 20px 10px;
-    padding: 10px;
-  /*  cursor: pointer;*/
+	vertical-align: center;
+	border-left: 0px solid #fff;
+
 }
 
-
-th.item_name {
-    margin: auto;
-    padding:auto !important;
-    width: 500px !important;
+table.patient-detail-table th.unchecked
+{
+    background: #b1b1b3 !important;
+    color: #77bc1f !important;
 }
-
-table.patient-detail-table tbody tr:nth-child(even){background-color: #ddd;}
-/*table.patient-table tbody tr:hover {background-color: #ddd;}*/
-
-table.patient-detail-table td {
-    /*padding: 10px 30px 10px 30px;
-    vertical-align: top;*/
-    border-bottom: 2px solid #fff;
-    margin: 20px 10px;
-    padding: 10px;
-}
-table.patient-detail-table .even {
-    background: #fdf3f5;
-}
-
 
 
 /********* button effect of icons (trash-can, pencil)************/
@@ -168,7 +196,13 @@ table.patient-info-table tr {
     padding: 10px;
 }
 
-/******** patient-table *************/
+
+/********** patient-table *************/
+
+table.patient-table thead th {
+    background: #77bc1f;
+    color: #fff;
+}
 
 table.patient-table {
     background: #efefef;
@@ -181,30 +215,17 @@ table.patient-table {
     margin-left:20px;
 }
 table.patient-table thead th ,
-table .item_type {
-    /*width: 80px;*/
-    padding: 10px 30px 10px 30px;
-    font-weight: bold;
-    vertical-align: center;
-    horiz-align: center;
-    color: #fff;
-    background: #77bc1f;
-    margin: 20px 10px;
-}
+
 table.patient-table tbody tr {
     border-bottom: 2px solid #fff;
   /*  width: 150px;*/
+
     margin: 20px 10px;
     padding: 10px;
   /*  cursor: pointer;*/
 }
 
 
-th.item_name {
-    margin: auto;
-    padding:auto !important;
-    width: 500px !important;
-}
 
 table.patient-table tbody tr:nth-child(even){background-color: #ddd;}
 /*table.patient-table tbody tr:hover {background-color: #ddd;}*/
