@@ -38,12 +38,6 @@ class RecordCreateView(CreateView):
     template_name = 'records/forms/record.html'
     model = Record
     fields = ('patient', 'io_type', 'record_type', 'amount',)
-    #Yeddo
-    def form_valid(self, form):
-        record = form.save(commit=Flase)
-        record.patient = User.objects.create(username=patient.pid, password=patient.pid)
-        record.save()
-        return redirect('records-main')
 
 
 class RecordUpdateView(UpdateView):

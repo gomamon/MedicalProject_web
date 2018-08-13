@@ -7,6 +7,7 @@ table.detail-nav {
     height: 50px;
     background:#001e46;
     color: #fff;
+
 }
 
 
@@ -19,6 +20,24 @@ table.detail-nav th,td {
 
 }
 
+/****** patient-detail frame ********/
+
+table.patient-detail-frame td.patient-detail-frame-td ,
+table.patient-detail-frame th.patient-detail-frame-th{
+    vertical-align: top;
+
+}
+
+table.patient-detail-frame{
+    width:80%;
+    border:0;
+    padding:0;
+    margin:0;
+}
+table.patient-detail-frame td.patient-detail-frame-td {
+    width: 500px;
+}
+
 /****** patient-detail table ********/
 
 
@@ -27,7 +46,8 @@ table.patient-detail-table {
     border-collapse: collapse;
     text-align: center;
     border:0px;
-    margin: 20px 10px;
+    margin:0;
+    padding:0;
 }
 
 table.patient-detail-table thead
@@ -38,7 +58,8 @@ table.patient-detail-table thead
 
 }
 
-table.patient-detail-table th
+table.patient-detail-table th,
+table.patient-detail-tag th
 {
 	background: #77bc1f;
 	color: #fff;
@@ -66,16 +87,17 @@ table.patient-detail-table tbody td{
 	background: #efefef;
 }
 
-table.patient-detail-table th,td {
+table.patient-detail-table th,td,
+table.patient-detail-tag th,td {
     padding: .5em 1em;
 	text-align: center;
-    border-bottom: 2px solid #fff;
+    /*border-bottom: 2px solid #fff;*/
 	vertical-align: center;
 	border-left: 0px solid #fff;
 
 }
 
-table.patient-detail-table th.unchecked
+th.unchecked
 {
     background: #b1b1b3 !important;
     color: #77bc1f !important;

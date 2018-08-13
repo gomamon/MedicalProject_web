@@ -15,6 +15,36 @@ current-menu
 <hr></hr>
 
 
+<div class="patient-info">
+    <table class="patient-table">
+        <thead>
+            <tr>
+                <th scope="cols">환자번호</th>
+                <th scope="cols">이름</th>
+                <th scope="cols">병실</th>
+                <th scope="cols">생년월일</th>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for patient in information %}
+        <tr>
+            <th scope="row"><a style="color: green;"href="{% url 'record-detail' pk=patient.pk %}"> {{ patient.patient.information.pid }}</a></th>
+            <td> {{ patient.patient.information.name }}</td>
+            <td> A병동 123호실 </td>
+            <td> {{ patient.patient.information.birth }}</td>
+        </tr>
+
+        {% endfor %}
+        </tbody>
+    </table>
+
+</div>
+
+{% endblock %}
+
+
+<!--
 <div class="records-content">
     <table class="patient-table">
         <thead>
@@ -52,8 +82,7 @@ current-menu
 
 </div>
 
-{% endblock %}
-
+-->
                 <!--
                 <td class="buttons">
                     <a class="pencil" role="button" href="{% url 'patient-update' pk=patient.pk %}">

@@ -20,6 +20,7 @@ current-menu
             <tr>
                 <th scope="cols">환자번호</th>
                 <th scope="cols">이름</th>
+                <th scope="cols">병실</th>
                 <th scope="cols">생년월일</th>
                 <th class="buttons"></th>
                 <th class="buttons"></th>
@@ -31,8 +32,11 @@ current-menu
 
 
         <tr>
-            <th scope="row"><a style="color: green;"href="{% url 'patient-detail' pk=patient.pk %}"> {{ patient.pid }}</a></th>
+            <th scope="row">
+                <a style="color: green;"href="{% url 'patient-detail-date' pk=patient.pk %}"> {{ patient.pid }}</a>
+            </th>
             <td> {{ patient.name }}</td>
+            <td> A병동 123호실 </td>
             <td> {{ patient.birth }}</td>
             <td class="buttons"> <!--class="delete-button"-->
                     <a class="pencil" role="button" href="{% url 'patient-update' pk=patient.pk %}">

@@ -1,10 +1,14 @@
 {% extends 'patients/pages/main.html' %}
 
 {% block item-content %}
+<div class="main-row p-0 m-0">
+    <h3>K병동 123호실 {{ patient.name }}({{ patient.pid }})님의 Records(date)</h3>
+    <div class="ml-auto">
+			<a class="btn btn-outline-secondary virus-button-style ml-1 mr-0" href="{% url 'patients-main' %}" role="button">&#10005; 뒤로가기</a>
+    </div>
 
-    <h1>K병동 123호실 {{ patient.name }}({{ patient.pid }})님의 Records(date)</h1>
+</div>
     <hr></hr>
-
 
     <div>
         <table class="detail-nav">
@@ -13,20 +17,18 @@
                 <td>2018년 9월 19일</td>
                 <th scope="row">기준시간</th>
                 <td>0A</td> <!-- 0A 7A -->
-                <th scope="row">소계</th>
-                <td>4시간</td> <!-- 4시간 6시간 8시간 -->
             </tr>
         </table>
     </div>
 
     <div>
-        <table class = "patient-detail-table">
+        <table class = "patient-detail-table" style="margin-bottom: 0px;">
             <tr>
                 <th><a href="{% url 'patient-detail-date' pk=patient.pk %}"> date </a> </th>
                 <th class="unchecked"><a href="{% url 'patient-detail' pk=patient.pk %}"> time </a> </th>
             </tr>
         </table>
-        <table class="patient-detail-table">
+        <table class="patient-detail-table" style="margin-top: 0px;">
         <thead>
             <tr>
                 <th scope="cols">시간</th>

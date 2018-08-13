@@ -2,25 +2,211 @@
 
 {% block item-content %}
 
-    <h1>K병동 123호실 {{ patient.name }}({{ patient.pid }})님의 Records(time)</h1>
-    <hr></hr>
+<div class="main-row p-0 m-0">
+    <h3>K병동 123호실 {{ patient.name }}({{ patient.pid }})님의 Records(time)</h3>
+    <div class="ml-auto">
+        <a class="btn btn-outline-secondary virus-button-style ml-1 mr-0" href="{% url 'patients-main' %}" role="button">&#10005; 뒤로가기</a>
+    </div>
+</div>
+<hr></hr>
+<div>
+    <table class="detail-nav">
+        <tr>
+            <th scope="row">기준날짜</th>
+            <td>2018년 9월 19일</td>
+            <th scope="row">기준시간</th>
+            <td>0A</td>
+            <th scope="row">소계</th>
+            <td>4시간</td>
+        </tr>
+    </table>
 
 
+    <table class = "patient-detail-tag" style="margin-bottom: 0px; border-bottom: 0px !important;">
+        <tr>
+            <th class="unchecked"><a href="{% url 'patient-detail-date' pk=patient.pk %}"> date </a> </th>
+            <th><a href="{% url 'patient-detail' pk=patient.pk %}"> time </a> </th>
+        </tr>
+    </table>
+
+
+    <table class="patient-detail-frame">
+        <tr>
+           <th class="patient-detail-frame-th">
+               <table class="patient-detail-table">
+                   <thead>
+                       <tr>
+                           <th colspan="2" scope="cols">시간</th>
+
+                       </tr>
+                   </thead>
+
+                   <tbody>
+                       <tr>
+                           <th rowspan="7" class="item_type">input</th>
+                           <th class="item_name">총 합계</th>
+                       </tr>
+                       <tr>
+                           <th class="item_name">정맥주입 총 합계</th>
+                       </tr>
+                       <tr>
+                           <th class="item_name">경구(환자자동입력)</th>
+                       </tr>
+                       <tr>
+                           <th class="item_name">경구(간호사입력)</th>
+                       </tr>
+                       <tr>
+                           <th class="item_name">경관(간호사입력)</th>
+                       </tr>
+                       <tr>
+                           <th class="item_name">정맥 주입 주사 1</th>
+                       </tr>
+                       <tr>
+                           <th class="item_name">정맥 주입 주사 2</th>
+                       </tr>
+
+                       <tr>
+                           <th rowspan="9" class="item_type">output</th>
+                           <th class="item_name">총 합계</th>
+                       </tr>
+                       <tr>
+                           <th class="item_name">총 대변 횟수</th>
+                       </tr>
+                       <tr>
+                           <th class="item_name">Self voiding(환자자동입력)</th>
+                       </tr>
+                       <tr>
+                           <th class="item_name">Self voiding(간호사입력)</th>
+                       </tr>
+                       <tr>
+                           <th class="item_name">Foley catheter(환자입력)</th>
+                       </tr>
+                       <tr>
+                           <th class="item_name">Foley catheter(간호사입력)</th>
+                       </tr>
+                      <tr>
+                           <th class="item_name">대변(환자입력)</th></th>
+                       </tr>
+                      <tr>
+                           <th class="item_name">대변(간호사입력)</th>
+                       </tr>
+                   </tbody>
+               </table>
+           </th>
+
+            <th class="patient-detail-frame-td">
+                <div style="overflow:auto; display:block;">
+                <table class="patient-detail-table" >
+                    <tr>
+                        <th> H1 </th>
+                        <th> H2 </th>
+                        <th> H3 </th>
+                        <th> H4 </th>
+                        <th> H5 </th>
+                        <th> H6 </th>
+                        <th> H7 </th>
+                        <th> H8 </th>
+                        <th> H9 </th>
+                        <th> H10 </th>
+                        <th> H11 </th>
+                        <th> H12 </th>
+                        <th> H13 </th>
+                        <th> H14 </th>
+                        <th> H15 </th>
+                        <th> H16 </th>
+                        <th> H17 </th>
+                        <th> H18 </th>
+                        <th> H19 </th>
+                        <th> H20 </th>
+                        <th> H21 </th>
+                        <th> H22 </th>
+                        <th> H23 </th>
+                        <th> H24 </th>
+                    </tr>
+                    <tr>
+                        <td> 1 </td>
+                        <td> 2 </td>
+                        <td> 3 </td>
+                        <td> 4 </td>
+                        <td> 5 </td>
+                        <td> 6 </td>
+                        <td> 7 </td>
+                        <td> 8 </td>
+                        <td> 9 </td>
+                        <td> 10 </td>
+                        <td> 11 </td>
+                        <td> 12 </td>
+                        <td> 13 </td>
+                        <td> 14 </td>
+                        <td> 15 </td>
+                    </tr>
+                    <tr>
+                    </tr>
+                    <tr>
+
+                    </tr>
+                    <tr>
+
+                    </tr>
+                    <tr>
+
+                    </tr>
+                    <tr>
+
+                    </tr>
+                    <tr>
+
+                    </tr>
+                    <tr>
+
+                    </tr>
+                    <tr>
+
+                    </tr>
+                    <tr>
+
+                    </tr>
+                    <tr>
+
+                    </tr>
+                    <tr>
+
+                    </tr>
+                    <tr>
+
+                    </tr>
+                </table>
+                </div>
+            </th>
+        </tr>
+    </table>
+
+
+
+</div>
+
+
+
+
+{% endblock %}
+
+
+<!--
     <div>
         <table class="detail-nav">
             <tr>
                 <th scope="row">기준날짜</th>
                 <td>2018년 9월 19일</td>
                 <th scope="row">기준시간</th>
-                <td>0A</td> <!-- 0A 7A -->
+                <td>0A</td>
                 <th scope="row">소계</th>
-                <td>4시간</td> <!-- 4시간 6시간 8시간 -->
+                <td>4시간</td>
             </tr>
         </table>
     </div>
 
     <div>
-        <table class = "patient-detail-table" style="margin-top:0px">
+        <table class = "patient-detail-tag" style="margin-bottom: 0px; border-bottom: 0px !important;">
             <tr>
                 <th class="unchecked"><a href="{% url 'patient-detail-date' pk=patient.pk %}"> date </a> </th>
                 <th><a href="{% url 'patient-detail' pk=patient.pk %}"> time </a> </th>
@@ -230,4 +416,6 @@
 
 
 </div>
-{% endblock %}
+
+-->
+

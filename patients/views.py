@@ -82,7 +82,7 @@ class PatientUpdateView(UpdateView):
     fields = ('pid', 'name', 'birth')
     ####yeddo
     def form_valid(self,form):
-        patient = form.save(commit=Flase)
+        patient = form.save(commit=False)
         patient.patient = User.objects.create(username=patient.pid, password=patient.pid)
         patient.save()
         return redirect('patient-main')
