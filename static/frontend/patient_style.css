@@ -79,14 +79,19 @@ table.patient-detail-table tbody td{
     display: block;
 	height: 50px;
 	background: #efefef;
+
 }
+table.patient-detail-table tbody tr:nth-child(even){background-color: #ddd;}
 
 table.patient-detail-table th,td,
 table.patient-detail-tag th,td {
     padding: .5em 1em;
 	text-align: center;
 	vertical-align: center;
-	border-left: 0px solid #fff;
+}
+table.patient-detail-tag{
+    position: relative;
+    margin-top: 30px;
 }
 
 table.patient-detail-tag a{

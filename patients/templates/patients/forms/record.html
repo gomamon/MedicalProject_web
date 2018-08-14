@@ -1,0 +1,54 @@
+{% extends 'patient/pages/main.html' %}
+
+{% block item-content %}
+<form method="POST">
+    {% csrf_token %}
+    <div class="main-row p-0 m-0">
+        <h3>정보추가</h3>
+		<div class="ml-auto">
+			<input class="btn btn-outline-secondary virus-button-style" type="submit" value="&check; 등록하기" />
+			<a class="btn btn-outline-secondary virus-button-style ml-1 mr-0" href="{% url 'records-main' %}" role="button">&#10005; 취소하기</a>
+        </div>
+    </div>
+    <hr></hr>
+    <div class="form-group col-lg-6 col-md-8 col-12">
+      <!--  <label for="{{ form.patient.id_for_label }}">Patient number</label> -->
+        <label for="{{ form.patient.id_for_label }}"> {{ form.patient.label }}</label>
+        <select class="form-control" id="{{ form.patient.id_for_label }}" name="{{ form.patient.html_name}}">
+            {% for p in form.patient %}
+            {{ p }}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group col-lg-6 col-md-8 col-12">
+        <label for="{{ form.io_type.id_for_label }}">{{ form.io_type.label }}</label>
+        <select class="form-control" type="number" id="{{ form.io_type.id_for_label }}" name="{{ form.io_type.html_name }}">
+            {% for t in form.io_type %}
+            {{ t }}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group col-lg-6 col-md-8 col-12">
+        <label for="{{ form.record_type.id_for_label }}">{{ form.record_type.label }}</label>
+        <select class="form-control" type="number" id="{{ form.record_type.id_for_label }}" name="{{ form.record_type.html_name }}">
+            {% for t in form.record_type %}
+            {{ t }}
+            {% endfor %}
+        </select>
+    </div>
+    <div class="form-group col-lg-6 col-md-8 col-12">
+        <label for="{{ form.amount.id_for_label }}">{{ form.amount.label }}</label>
+        <input class="form-control" id="{{ form.amount.id_for_label }}" name="{{ form.amount.html_name }}" placeholder="{{ form.amount.label }}" value="{% if form.amount.value %}{{ form.amount.value }}{% endif %}" />
+    </div>
+    <p>{{ form.errors }}</p>
+
+</form>
+<link rel="stylesheet" href="//code.jquery.com/ui/1.12.1/themes/base/jquery-ui.css">
+<script src="https://code.jquery.com/jquery-1.12.4.js"></script>
+<script src="https://code.jquery.com/ui/1.12.1/jquery-ui.js"></script>
+<script>
+    $(document).ready(function() {
+        $('.datepicker').datepicker({dateFormat: 'yy-mm-dd'});
+    });
+</script>
+{% endblock %}
