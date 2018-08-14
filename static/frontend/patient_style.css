@@ -24,6 +24,7 @@ table.detail-nav th,td {
 .table-frame{
     vertical-align: top;
     horiz-align: left;
+
     border:0;
     padding:0;
     margin:0;
@@ -44,21 +45,11 @@ table.patient-detail-table {
     padding:0;
 }
 
-table.patient-detail-table thead
-{
-	height: 50px;
-	background: #77bc1f;
-	color: #fff;
-
-}
-
-table.patient-detail-table th,
-table.patient-detail-tag th
+table.patient-detail-table th
 {
 	background: #77bc1f;
 	color: #fff;
 }
-
 table.patient-detail-table th a
 {
 	color: #fff;
@@ -66,29 +57,36 @@ table.patient-detail-table th a
 
 table.patient-detail-table th.item_name
 {
-    display: block;
-	height: 50px;
-    width: 230px;
-    text-algin: left;
+    text-align: left;
 	background: #c0cecb;
 	color: #000;
+    border-bottom: 2px solid #fff;
 }
-
 
 table.patient-detail-table tbody td{
-    display: block;
-	height: 50px;
 	background: #efefef;
-
+    border-bottom: 2px solid #fff;
 }
-table.patient-detail-table tbody tr:nth-child(even){background-color: #ddd;}
+table.patient-detail-table tbody str:nth-child(even){background-color: #c0cecb;}
 
-table.patient-detail-table th,td,
+table.patient-detail-table th,td ,
 table.patient-detail-tag th,td {
     padding: .5em 1em;
 	text-align: center;
 	vertical-align: center;
 }
+
+/******* detail-tag *********/
+
+table.patient-detail-tag th
+{
+	background: #77bc1f;
+	color: #fff;
+    padding: .5em 1em;
+	text-align: center;
+	vertical-align: center;
+}
+
 table.patient-detail-tag{
     position: relative;
     margin-top: 30px;
