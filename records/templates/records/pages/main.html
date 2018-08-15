@@ -27,12 +27,14 @@ current-menu
         </thead>
 
         <tbody>
-        {% for patient in information %}
+        {% for p in information %}
         <tr>
-            <th scope="row"><a style="color: green;"href="{% url 'record-detail' pk=patient.pk %}"> {{ patient.patient.information.pid }}</a></th>
-            <td> {{ patient.patient.information.name }}</td>
+            <th scope="row">
+                <a style="color: green;" href="{% url 'record-detail' pk=p.pk %}"> {{ p.patient.pid }}</a>
+            </th>
+            <td> {{ p.patient }}</td>
             <td> A병동 123호실 </td>
-            <td> {{ patient.patient.information.birth }}</td>
+            <td> {{ p.patient.birth }}</td>
         </tr>
 
         {% endfor %}

@@ -1,9 +1,10 @@
 from django.db import models
+from django.shortcuts import reverse
 
 # Create your models here.
 
+
 class Information(models.Model):
-    patient = models.OneToOneField('auth.User', on_delete=models.CASCADE)
     pid = models.PositiveIntegerField(unique=True)
     name = models.CharField(max_length=10)
     room = models.CharField(max_length=10)
@@ -11,3 +12,6 @@ class Information(models.Model):
 
     def __str__(self):
         return self.name
+
+    def get_absolute_url(self):
+        return reverse('patient-detail', kwargs={'pk': self.pk})

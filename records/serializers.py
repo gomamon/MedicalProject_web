@@ -11,8 +11,8 @@ class RecordSerializer(serializers.ModelSerializer):
 
 
 class RecordListSerializer(serializers.ModelSerializer):
-    patient_pid = serializers.CharField(source='patient.information.pid')
-    patient_name = serializers.CharField(source='patient.information.name')
+    patient_pid = serializers.CharField(source='patient.pid')
+    patient_name = serializers.CharField(source='patient.name')
     io_type = serializers.CharField(source='get_io_type_display')
     record_type = serializers.CharField(source='get_record_type_display')
 

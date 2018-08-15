@@ -1,5 +1,4 @@
 from django.urls import reverse_lazy
-from django.shortcuts import render
 from django.views.generic import TemplateView
 from django.views.generic import DetailView
 from django.views.generic.edit import CreateView
@@ -17,12 +16,13 @@ from .serializers import RecordListSerializer
 
 # Create your views here.
 
+
 class MainRecordView(TemplateView):
     template_name = 'records/pages/main.html'
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        information = Record.objects.all().select_related('patient__information').order_by('-registered_time')
+        information = Record.objects.all().order_by('-registered_time')
         context['information'] = information
         return context
 
@@ -33,17 +33,16 @@ class RecordDetailView(DetailView):
     context_object_name = 'record'
 
 
-
 class RecordCreateView(CreateView):
     template_name = 'records/forms/record.html'
     model = Record
-    fields = ('patient', 'io_type', 'record_type', 'amount',)
+    fields = ('patient', 'io_type', 'record_type', 'data_time', 'amount',)
 
 
 class RecordUpdateView(UpdateView):
     template_name = 'records/forms/update.html'
     model = Record
-    fields = ('io_type', 'record_type', 'amount',)
+    fields = ('io_type', 'io_type', 'record_type', 'data_time', 'amount',)
 
 
 class RecordDeleteView(DeleteView):
@@ -59,6 +58,6 @@ class RecordViewSet(ModelViewSet):
     serializer_class = RecordSerializer
 
     def list(self, request):
-        queryset = Record.objects.all().select_related('patient__information')
+        queryset = Record.objects.all()
         serializer = RecordListSerializer(queryset, many=True)
         return Response(serializer.data)

@@ -58,22 +58,34 @@ table.patient-detail-table th a
 table.patient-detail-table th.item_name
 {
     text-align: left;
-	background: #c0cecb;
+	background: #c8c8c8;
+
 	color: #000;
     border-bottom: 2px solid #fff;
 }
-
-table.patient-detail-table tbody td{
-	background: #efefef;
+table.patient-detail-table th.item_type{
     border-bottom: 2px solid #fff;
 }
-table.patient-detail-table tbody str:nth-child(even){background-color: #c0cecb;}
+
+table.patient-detail-table tr:nth-child(even) th.item_name
+{
+    background: #a4a5a4 !important;
+}
+
+table.patient-detail-table tbody td{
+    border-bottom: 2px solid #fff;
+}
+table.patient-detail-table tr:nth-child(even){background: #ddd !important;}
 
 table.patient-detail-table th,td ,
 table.patient-detail-tag th,td {
     padding: .5em 1em;
 	text-align: center;
 	vertical-align: center;
+}
+
+table.patient-detail-table th.item_name {
+    padding: .5em 0em .5em 1em;
 }
 
 /******* detail-tag *********/
@@ -103,22 +115,45 @@ th.unchecked
 }
 
 
-/********* button effect of icons (trash-can, pencil)************/
-.button{
+/********* button effect of icons (trash-can, pencil, plus)************/
+.button
+{
         width:80%;
         float:left;
         padding:15px;
 }
-.trash-can ,
-.pencil{
 
+.trash-can ,
+.pencil
+{
     display: inline-block;
     margin: auto;
     width: 100%;
     height: 100%;
 }
+.plus{
+    display: inline-block;
+    margin: auto;
+    width: 100%;
+    height: 100%;
+}
+.plus svg {
+    display: inline-block;
+    width: 20px;
+    height: 20px;
+    margine: auto;
+}
+
+table.patient-detail-table th.buttons
+{
+    text-align: center;
+    border-bottom: 2px solid #fff;
+    padding: 0px;
+}
+
 .trash-can svg ,
-.pencil svg{
+.pencil svg
+{
     display: inline-block;
     margin-top: 5px;
     width: 30px;
@@ -127,7 +162,7 @@ th.unchecked
 }
 
 .trash-can svg .fill ,
-.pencil svg .fill{
+.pencil svg .fill {
         fill:#c0cecb;
 
         -webkit-transition: fill 0.2s ease;
@@ -136,6 +171,24 @@ th.unchecked
         -o-transition: fill 0.2s ease;
         transition:fill 0.2s ease;
 }
+.plus svg .fill {
+    fill:#fff;
+
+    -webkit-transition: fill 0.2s ease;
+    -moz-transition: fill 0.2s ease;
+    -ms-transition: fill 0.2s ease;
+    -o-transition: fill 0.2s ease;
+    transition:fill 0.2s ease;
+}
+
+
+.plus svg .unfill{
+    fill:#c8c8c8;
+}
+tr:nth-child(even) .plus svg .unfill{
+    fill: #a4a5a4 !important;
+}
+
 
 .trash-can:hover svg .fill {
         fill:#e85656;
@@ -144,13 +197,20 @@ th.unchecked
 
 .pencil:hover svg .fill {
     fill:#77bc1f;
-    cursor: pointer
+    cursor: pointer;
 }
 
-table td.buttons {
+.plus:hover svg .fill {
+        fill:#e85656;
+        cursor: pointer;
+}
+
+table td.buttons,
+table th.buttons{
     width: 50px;
     text-align:center;
 }
+
 
 /********** record-confirm-table *********/
 
@@ -159,7 +219,6 @@ table.record-confirm-table{
     line-height: 1.5;
     border:0px;
     background: rgba(119, 188, 31, 0.3);
-
     margin: 20px;
 }
 table.record-confirm-table th {

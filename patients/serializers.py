@@ -6,12 +6,11 @@ from .models import Information
 
 # Create your serializers here.
 
-class InformationSerializer(serializers.ModelSerializer):
-    user_pk = serializers.IntegerField(source='patient.pk')
 
+class InformationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Information
-        fields = ('pk', 'user_pk', 'pid', 'name', 'birth')
+        fields = ('pk', 'pid', 'name', 'birth')
 
 
 class InformationDetailSerializer(serializers.ModelSerializer):
