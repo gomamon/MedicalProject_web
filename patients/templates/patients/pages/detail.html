@@ -3,7 +3,7 @@
 {% block item-content %}
 
 <div class="main-row p-0 m-0">
-    <h3>K병동 123호실 {{ patient.name }}({{ patient.pid }})님의 Records(time)</h3>
+    <h3>{{patient.room}} {{ patient.name }}({{ patient.pid }})님의 Records(time)</h3>
     <div class="ml-auto">
         <a class="btn btn-outline-secondary virus-button-style ml-1 mr-0" href="{% url 'patients-main' %}" role="button">&#10005; 뒤로가기</a>
     </div>
@@ -185,7 +185,7 @@
                 <th scope="col"> H24 </th>
             </tr>
             <tr>
-                <td> 1 </td>
+                <td> {{get_Information_display() }} </td>
                 <td> 2 </td>
                 <td> 3 </td>
                 <td> 4 </td>

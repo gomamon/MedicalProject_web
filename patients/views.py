@@ -5,6 +5,9 @@ from django.views.generic.edit import CreateView
 from django.views.generic.edit import UpdateView
 from django.views.generic.edit import DeleteView
 
+##yeddo
+from django.views.generic.edit import RecordsView
+##
 from rest_framework.viewsets import ModelViewSet
 from rest_framework.permissions import IsAuthenticated
 from rest_framework.authentication import TokenAuthentication, SessionAuthentication
@@ -51,8 +54,14 @@ class PatientDetailDateView(DetailView):
         records = Record.objects.filter(patient=context['patient']).order_by('-registered_time')
         context['records'] = records
         return context
+##yeddo##
 
+class PatientRecordsView(RecordsView):
+    template_name = 'patients/forms/records.html'
+    model = Information
+    fields = ('pid', 'name', 'birth')
 
+########
 class PatientCreateView(CreateView):
     template_name = 'patients/forms/information.html'
     model = Information

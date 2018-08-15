@@ -22,5 +22,6 @@ urlpatterns = [
     path('<pk>/update/', login_required(PatientUpdateView.as_view()), name='patient-update'),
     path('<pk>/delete/', login_required(PatientDeleteView.as_view()), name='patient-delete'),
     path('<pk>/detail_date/', login_required(PatientDetailDateView.as_view()), name='patient-detail-date'),
+    path('<pk>/records/', login_required(PatientRecordsView.as_view()), name='patient-records'),
     path('api/', include(router.urls)),
 ]

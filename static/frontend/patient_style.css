@@ -172,7 +172,7 @@ table.patient-detail-table th.buttons
         transition:fill 0.2s ease;
 }
 .plus svg .fill {
-    fill:#fff;
+    fill:#000;
 
     -webkit-transition: fill 0.2s ease;
     -moz-transition: fill 0.2s ease;
